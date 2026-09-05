@@ -38,8 +38,6 @@ By leveraging EVM smart contracts, physical delivery workflows are cryptographic
 
 ---
 
----
-
 ## 4. Prerequisites & Environment Setup
 
 Before running the application locally, ensure you have the following installed:
@@ -85,7 +83,33 @@ Before running the application locally, ensure you have the following installed:
    ```javascript
    const contractAddress = "0xfd6456465d084Cc3A5AdAc950CC0e4BCbCF8e269";
 
-## 11. System Architecture & Project Directory Structure
+### Step 4: Run the Front-End Client
+1. Open the project root folder in **Visual Studio Code**.
+2. Right-click `index.html` and click **"Open with Live Server"**.
+3. The application will launch in your browser at `http://127.0.0.1:5500/index.html`.
+4. Click **Connect Wallet** in the top navigation bar to grant MetaMask permissions.
+
+---
+
+## 6. Smart Contract Specifications
+
+- **Contract Name**: `LogisticsEscrow`
+- **Compiler Version**: `Solidity ^0.8.0`
+- **Economic Valuation Model**: 1 ETH ≈ RM 13,500.00 MYR
+- **Protocol Fee**: Fixed at 1% of disbursed milestone releases.
+- **Escrow Settlement Rules**:
+  - Full / partial timeout refunds are exempt from platform protocol fees (0%).
+  - Terminal states (`Completed`, `Refunded`, `Cancelled`) enforce strict non-reentrant state transitions.
+
+---
+
+## 7. Troubleshooting & Operational Notes
+
+- **Ganache State Ephemerality**: Ganache Quickstart executes in-memory. If closed, EVM state resets. To retain data, click **"SAVE WORKSPACE"**. If restarted in Quickstart, clear MetaMask cached nonce history via `Settings > Advanced > Clear activity tab data`.
+- **MetaMask Account Switching**: The application incorporates the EIP-2255 `wallet_requestPermissions` API. When switching roles, click **Disconnect** and re-connect to trigger the MetaMask account selection modal.
+- **Client-Side Refund Pre-Flight Check**: If `Claim Refund` is clicked before the transit deadline expires, the client-side pre-flight check blocks the call and presents a countdown alert to avoid unhandled JSON-RPC EVM reverts.
+
+## 8. System Architecture & Project Directory Structure
 
 ```text
 BMIS2003-Logistics-Escrow-dApp/

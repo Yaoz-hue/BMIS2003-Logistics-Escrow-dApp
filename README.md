@@ -38,7 +38,54 @@ By leveraging EVM smart contracts, physical delivery workflows are cryptographic
 
 ---
 
-## 3. System Architecture & Project Directory Structure
+---
+
+## 4. Prerequisites & Environment Setup
+
+Before running the application locally, ensure you have the following installed:
+
+1. **Web Browser**: Google Chrome, Brave, or Mozilla Firefox.
+2. **MetaMask Extension**: Installed and initialized in your browser ([Download MetaMask](https://metamask.io/)).
+3. **Local Blockchain Emulator**: 
+   - [Ganache UI](https://trufflesuite.com/ganache/) (Quickstart Ethereum Workspace).
+4. **Local HTTP Web Server**:
+   - VS Code extension: **Live Server** (Recommended), or Node.js `http-server` / Python SimpleHTTPServer.
+
+---
+
+## 5. Step-by-Step Installation & Execution Guide
+
+### Step 1: Start the Local Blockchain Node
+1. Launch **Ganache UI**.
+2. Click the **"QUICKSTART" (Ethereum)** button to spin up a local 10-account workspace.
+3. Verify the default RPC Server endpoint displayed in the header:
+   - **RPC Server**: `HTTP://127.0.0.1:7545`
+   - **Network ID**: `5777`
+
+### Step 2: Configure MetaMask
+1. Open the MetaMask extension and click **Add Network > Add a network manually**:
+   - **Network Name**: `Ganache Localhost`
+   - **New RPC URL**: `http://127.0.0.1:7545`
+   - **Chain ID**: `1337` (or `5777`, match Ganache)
+   - **Currency Symbol**: `ETH`
+2. Import at least **three test accounts** from Ganache using their private keys (click the key icon next to any account in Ganache):
+   - **Account 1**: Contract Deployer / Platform Owner (Admin)
+   - **Account 2**: Shipper (Cargo Owner)
+   - **Account 3**: Carrier (Courier / Driver)
+
+### Step 3: Deploy the Smart Contract
+1. Open [Remix Ethereum IDE](https://remix.ethereum.org/).
+2. Create `LogisticsEscrow.sol` in Remix and paste the contract code.
+3. Compile with Solidity compiler `^0.8.0`.
+4. In the **Deploy & Run Transactions** tab:
+   - **Environment**: Select `Injected Provider - MetaMask`.
+   - Ensure MetaMask is connected to **Account 1 (Deployer)**.
+   - Click **Deploy**.
+5. Copy the deployed contract address and verify it matches the configuration in `app.js`:
+   ```javascript
+   const contractAddress = "0xfd6456465d084Cc3A5AdAc950CC0e4BCbCF8e269";
+
+## 11. System Architecture & Project Directory Structure
 
 ```text
 BMIS2003-Logistics-Escrow-dApp/

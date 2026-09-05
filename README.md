@@ -50,9 +50,7 @@ BMIS2003-Logistics-Escrow-dApp/
 ├── app.js                         # Web3 integration, Ethers.js controller & DOM engine
 ├── README.md                      # Comprehensive documentation and installation guide
 └── Note.txt                       # Quick reference link to the GitHub repository
-
----
-## 4. Prerequisites & Environment Setup
+4. Prerequisites & Environment Setup
 Before running the application locally, ensure you have the following installed:
 
 Web Browser: Google Chrome, Brave, or Mozilla Firefox.

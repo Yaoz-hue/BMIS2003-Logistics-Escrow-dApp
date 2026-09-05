@@ -6,6 +6,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **GitHub Repository:** [https://github.com/Yaoz-hue/BMIS2003-Logistics-Escrow-dApp](https://github.com/Yaoz-hue/BMIS2003-Logistics-Escrow-dApp)  
+> *(Note: Ensure the repository visibility is set to **Public** for evaluation).*
+
 ---
 
 ## 1. Project Overview
@@ -38,6 +40,7 @@ By leveraging EVM smart contracts, physical delivery workflows are cryptographic
 
 ## 3. System Architecture & Project Directory Structure
 
+```text
 BMIS2003-Logistics-Escrow-dApp/
 │
 ├── contracts/
@@ -47,7 +50,9 @@ BMIS2003-Logistics-Escrow-dApp/
 ├── app.js                         # Web3 integration, Ethers.js controller & DOM engine
 ├── README.md                      # Comprehensive documentation and installation guide
 └── Note.txt                       # Quick reference link to the GitHub repository
-4. Prerequisites & Environment Setup
+
+---
+## 4. Prerequisites & Environment Setup
 Before running the application locally, ensure you have the following installed:
 
 Web Browser: Google Chrome, Brave, or Mozilla Firefox.
@@ -139,9 +144,6 @@ Terminal states (Completed, Refunded, Cancelled) enforce strict non-reentrant st
 7. Troubleshooting & Operational Notes
 Ganache State Ephemerality: Ganache Quickstart executes in-memory. If closed, EVM state resets. To retain data, click "SAVE WORKSPACE". If restarted in Quickstart, clear MetaMask cached nonce history via Settings > Advanced > Clear activity tab data.
 
-MetaMask Account Switching: The application incorporates the EIP-2255 wallet_requestPermissions API. When switching roles, click Disconnect and re-connect to trigger the MetaMask account selection modal.
-
-Client-Side Refund Pre-Flight Check: If Claim Refund is clicked before the transit deadline expires, the client-side pre-flight check blocks the call and presents a countdown alert to avoid unhandled JSON-RPC EVM reverts.
 MetaMask Account Switching: The application incorporates the EIP-2255 wallet_requestPermissions API. When switching roles, click Disconnect and re-connect to trigger the MetaMask account selection modal.
 
 Client-Side Refund Pre-Flight Check: If Claim Refund is clicked before the transit deadline expires, the client-side pre-flight check blocks the call and presents a countdown alert to avoid unhandled JSON-RPC EVM reverts.
